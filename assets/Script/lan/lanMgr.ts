@@ -5,6 +5,7 @@ let nowLan = "";
 let labels: LanLabel[] = [];
 let labelData: { [key: string]: string } = {};
 let sprites: LanSprite[] = [];
+
 initLan("zh");
 
 
@@ -106,3 +107,4 @@ export function lanSprite(path: string, cb: (spriteFrame: cc.SpriteFrame) => voi
         cb(spriteFrame);
     });
 }
+

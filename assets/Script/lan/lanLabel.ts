@@ -1,7 +1,9 @@
 import * as lanMgr from "./lanMgr";
-const { ccclass, property } = cc._decorator;
+const { ccclass, property, executeInEditMode, menu } = cc._decorator;
 
 @ccclass
+@executeInEditMode
+@menu("多语言/lanLabel")
 export default class LanLabel extends cc.Label {
     @property({ serializable: true })
     private _lanString: string | { key: string, isLan: boolean }[] = "";
