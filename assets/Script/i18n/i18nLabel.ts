@@ -9,9 +9,12 @@ const { ccclass, property, executeInEditMode, disallowMultiple, requireComponent
 export class i18nLabel extends cc.Component {
 
     @property({ visible: false })
-    private i18n_string: string | { key: string, is: boolean }[] = "";
+    private i18n_string: string = "";
 
-    onLoad() {
+    @property({ visible: false })
+    private i18n_params: string[] = [];
+
+    start() {
         i18nMgr._addOrDelLabel(this, true);
         this._resetValue();
     }
@@ -21,12 +24,36 @@ export class i18nLabel extends cc.Component {
         return this.i18n_string;
     }
 
-    set string(value: string | { key: string, is: boolean }[]) {
+    set string(value: string) {
         this.i18n_string = value;
 
         let label = this.getComponent(cc.Label);
         if (cc.isValid(label)) {
-            label.string = i18nMgr._getLabel(value);
+            label.string = i18nMgr._getLabel(this.i18n_string, this.i18n_params);
+        }
+    }
+
+    @property({ type: [cc.String] })
+    get params() {
+        return this.i18n_params;
+    }
+
+    set params(value: string[]) {
+        this.i18n_params = value;
+        
+        let label = this.getComponent(cc.Label);
+        if (cc.isValid(label)) {
+            label.string = i18nMgr._getLabel(this.i18n_string, this.i18n_params);
+        }
+    }
+
+    init(string: string, params: string[]) {
+        this.i18n_string = string;
+        this.i18n_params = params;
+
+        let label = this.getComponent(cc.Label);
+        if (cc.isValid(label)) {
+            label.string = i18nMgr._getLabel(this.i18n_string, this.i18n_params);
         }
     }
 

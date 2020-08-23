@@ -11,7 +11,7 @@ export class i18nSprite extends cc.Component {
     @property({ visible: false })
     private i18n_string: string = "";
 
-    onLoad() {
+    start() {
         i18nMgr._addOrDelSprite(this, true);
         this._resetValue();
     }

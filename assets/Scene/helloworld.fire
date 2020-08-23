@@ -189,7 +189,7 @@
       "array": [
         0,
         0,
-        470.2517942549502,
+        525.6674520028715,
         0,
         0,
         0,
@@ -400,7 +400,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 80,
+      "width": 120,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -412,7 +412,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -49.516,
+        -50,
         218.512,
         0,
         0,
@@ -450,9 +450,11 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": true,
-    "_string": "李四",
-    "_N$string": "李四",
+    "_string": "您好！",
+    "_N$string": "您好！",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -477,7 +479,8 @@
       "__id__": 8
     },
     "_enabled": true,
-    "i18n_string": "ls",
+    "i18n_string": "hello",
+    "i18n_params": [],
     "_id": "c7pVPErfdG6qvucYZEA47c"
   },
   {
@@ -508,7 +511,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 186.72,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -520,7 +523,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -70.667,
+        -50,
         109.917,
         0,
         0,
@@ -558,9 +561,11 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": true,
-    "_string": "",
-    "_N$string": "",
+    "_string": "a 爱上了 b",
+    "_N$string": "a 爱上了 b",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -585,7 +590,11 @@
       "__id__": 11
     },
     "_enabled": true,
-    "i18n_string": "",
+    "i18n_string": "love_msg",
+    "i18n_params": [
+      "a",
+      "b"
+    ],
     "_id": "29PIePuwhLHrO64hvnDwX1"
   },
   {
@@ -906,6 +915,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": false,
     "_string": "中文",
     "_N$string": "中文",
@@ -1292,6 +1303,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": false,
     "_string": "英文",
     "_N$string": "英文",

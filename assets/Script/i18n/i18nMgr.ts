@@ -1,11 +1,17 @@
-import { i18nLabel } from "./i18nLabel";
-import { i18nSprite } from "./i18nSprite";
+import * as i18nLabel from "./i18nLabel";
+import * as i18nSprite from "./i18nSprite";
 
 export class i18nMgr {
     private static language = "";     // 当前语言
-    private static labelArr: i18nLabel[] = [];        // i18nLabel 列表
+    private static labelArr: i18nLabel.i18nLabel[] = [];        // i18nLabel 列表
     private static labelData: { [key: string]: string } = {};   // 文字配置
-    private static spriteArr: i18nSprite[] = [];       // i18nSprite 列表
+    private static spriteArr: i18nSprite.i18nSprite[] = [];       // i18nSprite 列表
+
+    private static checkInit() {
+        if (!this.language) {
+            this.setLanguage("zh");
+        }
+    }
 
     /**
      * 设置语言
@@ -22,7 +28,7 @@ export class i18nMgr {
     /**
      * 添加或移除 i18nLabel
      */
-    public static _addOrDelLabel(label: i18nLabel, isAdd: boolean) {
+    public static _addOrDelLabel(label: i18nLabel.i18nLabel, isAdd: boolean) {
         if (isAdd) {
             this.labelArr.push(label);
         } else {
@@ -33,26 +39,24 @@ export class i18nMgr {
         }
     }
 
-    public static _getLabel(opt: string | { key: string, is: boolean }[]): string {
-        if (typeof opt === "string") {
+    public static _getLabel(opt: string, params: string[]): string {
+        this.checkInit();
+        if (params.length === 0) {
             return this.labelData[opt] || opt;
         }
-        let endStr = "";
-        for (let one of opt) {
-            if (one.is) {
-                endStr += this._getLabel(one.key);
-            } else {
-                endStr += one.key;
-            }
+        let str = this.labelData[opt] || opt;
+        for (let i = 0; i < params.length; i++) {
+            let reg = new RegExp("#" + i, "g")
+            str = str.replace(reg, params[i]);
         }
-        return endStr;
+        return str;
     }
 
 
     /**
      * 添加或移除 i18nSprite
      */
-    public static _addOrDelSprite(sprite: i18nSprite, isAdd: boolean) {
+    public static _addOrDelSprite(sprite: i18nSprite.i18nSprite, isAdd: boolean) {
         if (isAdd) {
             this.spriteArr.push(sprite);
         } else {
@@ -64,6 +68,7 @@ export class i18nMgr {
     }
 
     public static _getSprite(path: string, cb: (spriteFrame: cc.SpriteFrame) => void) {
+        this.checkInit();
         cc.loader.loadRes("i18n/sprite/" + this.language + "/" + path, cc.SpriteFrame, (err, spriteFrame) => {
             if (err) {
                 return cb(null);
@@ -95,5 +100,3 @@ export class i18nMgr {
     }
 
 }
-
-i18nMgr.setLanguage("zh");
