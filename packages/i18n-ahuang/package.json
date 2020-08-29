@@ -1,0 +1,21 @@
+{
+	"name": "i18n-ahuang",
+	"version": "0.0.1",
+	"description": "ahuang的i18n扩展包",
+	"author": "ahuang",
+	"main": "main.js",
+	"scene-script": "scene-script.js",
+	"main-menu": {
+		"Packages/i18n-ahuang": {
+			"message": "i18n-ahuang:openPanel"
+		}
+	},
+	
+	"panel": {
+		"main": "panel/index.js",
+		"type": "dockable",
+		"title": "i18n 控制台",
+		"width": 400,
+		"height": 300
+	}
+}
