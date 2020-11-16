@@ -27,10 +27,7 @@ export class i18nLabel extends cc.Component {
     set string(value: string) {
         this.i18n_string = value;
 
-        let label = this.getComponent(cc.Label);
-        if (cc.isValid(label)) {
-            label.string = i18nMgr._getLabel(this.i18n_string, this.i18n_params);
-        }
+        this.setEndValue()
     }
 
     @property({ type: [cc.String] })
@@ -40,17 +37,18 @@ export class i18nLabel extends cc.Component {
 
     set params(value: string[]) {
         this.i18n_params = value;
-        
-        let label = this.getComponent(cc.Label);
-        if (cc.isValid(label)) {
-            label.string = i18nMgr._getLabel(this.i18n_string, this.i18n_params);
-        }
+
+        this.setEndValue()
     }
 
     init(string: string, params: string[]) {
         this.i18n_string = string;
         this.i18n_params = params;
 
+        this.setEndValue()
+    }
+
+    private setEndValue() {
         let label = this.getComponent(cc.Label);
         if (cc.isValid(label)) {
             label.string = i18nMgr._getLabel(this.i18n_string, this.i18n_params);

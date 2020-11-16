@@ -69,7 +69,7 @@ export class i18nMgr {
 
     public static _getSprite(path: string, cb: (spriteFrame: cc.SpriteFrame) => void) {
         this.checkInit();
-        cc.loader.loadRes("i18n/sprite/" + this.language + "/" + path, cc.SpriteFrame, (err, spriteFrame) => {
+        cc.resources.load("i18n/sprite/" + this.language + "/" + path, cc.SpriteFrame, (err, spriteFrame: cc.SpriteFrame) => {
             if (err) {
                 return cb(null);
             }
@@ -80,7 +80,7 @@ export class i18nMgr {
 
     private static reloadLabel() {
         let url = "i18n/label/" + this.language;
-        cc.loader.loadRes(url, (err, data) => {
+        cc.resources.load(url, (err, data: cc.JsonAsset) => {
             if (err) {
                 console.error(err);
                 this.labelData = {};
